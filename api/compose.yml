@@ -9,10 +9,11 @@ services:
         - BUNDLER_VERSION=${BUNDLER_VERSION}
         - LANG=${LANG}
         - TZ=${TZ}
+        - PORT=${PORT}
     volumes:
       - .:/api
     ports:
-      - "3010:3010"
+      - 3010:${PORT}
     env_file:
       - ./.env
     command: bundle exec puma -C "config/puma.rb"

@@ -7,4 +7,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # API用のルーティング設定
+  scope "api" do
+    scope "v1" do
+      get "/hello", to: "application#hello"
+    end
+  end
 end

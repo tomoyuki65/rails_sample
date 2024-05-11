@@ -7,6 +7,7 @@ ARG RAILS_ENV
 ARG BUNDLER_VERSION
 ARG LANG
 ARG TZ
+ARG PORT
 
 # インストール可能なパッケージ一覧の更新
 RUN apk update && \
@@ -47,6 +48,7 @@ ARG RAILS_ENV
 ARG BUNDLER_VERSION
 ARG LANG
 ARG TZ
+ARG PORT
 
 # インストール可能なパッケージ一覧の更新
 RUN apk update && \
@@ -70,5 +72,5 @@ COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY . /api
 
 # サーバー起動
-EXPOSE 3010
+EXPOSE $PORT
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
