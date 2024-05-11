@@ -16,4 +16,16 @@ services:
       - 3010:${PORT}
     env_file:
       - ./.env
+    depends_on:
+        - db
     command: bundle exec puma -C "config/puma.rb"
+  # DBに関する設定
+  db:
+    container_name: rails-s-db
+    image: mysql:8.0.36
+    env_file:
+      - ./.env
+    ports:
+      - 3306:3306
+    volumes:
+      - ./tmp/db:/var/lib/mysql
