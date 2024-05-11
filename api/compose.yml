@@ -1,0 +1,18 @@
+services:
+  api:
+    container_name: rails-s-api
+    build:
+      context: .
+      dockerfile: ./docker/local/Dockerfile
+      args:
+        - RAILS_ENV=${RAILS_ENV}
+        - BUNDLER_VERSION=${BUNDLER_VERSION}
+        - LANG=${LANG}
+        - TZ=${TZ}
+    volumes:
+      - .:/api
+    ports:
+      - "3010:3010"
+    env_file:
+      - ./.env
+    command: bundle exec puma -C "config/puma.rb"
