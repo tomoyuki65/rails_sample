@@ -9,6 +9,7 @@ Rails "7.1.3.2"
 Docker  
 docker-compose  
 MySQL "8.0.36"  
+RSpec  
   
 ## 参考記事  
   
