@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   scope "api" do
     scope "v1" do
       get "/hello", to: "application#hello"
+
+      post "/user", to: "users#create"
+      get "/user/:uid", to: "users#get_user"
+      put "/user/:uid", to: "users#update"
+      delete "/user/:uid", to: "users#delete"
+      get "/users/with-discarded", to: "users#get_users_with_discarded"
     end
   end
 end

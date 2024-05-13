@@ -13,6 +13,8 @@ default: &default
   # adapterを初期設定に戻す
   adapter: mysql2
   encoding: utf8mb4
+  # コレクションを指定
+  collation: utf8mb4_bin
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   # 以下をコメントアウト
   # username: root
